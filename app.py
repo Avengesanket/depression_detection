@@ -2,6 +2,8 @@ import streamlit as st
 from pathlib import Path
 from streamlit_option_menu import option_menu
 from dotenv import load_dotenv
+import nltk
+
 from login import show_login_page
 from register import show_register_page
 from home import show_home_page
@@ -38,6 +40,18 @@ def init_session_state():
 # --- Main Application ---
 def main():
     """Main function to run the Streamlit application."""
+    try:
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        nltk.download('stopwords')
+    try:
+        nltk.data.find('corpora/wordnet')
+    except LookupError:
+        nltk.download('wordnet')
+    try:
+        nltk.data.find('sentiment/vader_lexicon')
+    except LookupError:
+        nltk.download('vader_lexicon')
     load_dotenv()
     load_css()
     init_db()

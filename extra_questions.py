@@ -35,7 +35,6 @@ def show_extra_questions():
     if not st.session_state.get("extra_progress_loaded", False):
         load_and_set_progress(user_id)
         st.session_state["extra_progress_loaded"] = True
-        st.rerun() 
         
     phq9_scores = st.session_state.get("scores", [])
     if not phq9_scores or len(phq9_scores) != 9:
