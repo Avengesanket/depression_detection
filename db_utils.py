@@ -9,11 +9,11 @@ def init_connection():
     """Initialize and cache the database connection."""
     try:
         return psycopg2.connect(
-            host=os.getenv("DB_HOST"),
-            port=os.getenv("DB_PORT"),
-            database=os.getenv("DB_NAME"),
-            user=os.getenv("DB_USER"),
-            password=os.getenv("DB_PASSWORD")
+            host=st.secrets.database.host,
+            port=st.secrets.database.port,
+            database=st.secrets.database.dbname,
+            user=st.secrets.database.user,
+            password=st.secrets.database.password
         )
     except Exception as e:
         st.error(f"Database connection failed: {e}")
