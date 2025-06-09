@@ -1,8 +1,28 @@
 import streamlit as st
+import nltk
+
+def download_nltk_resources():
+    """Check for and download required NLTK data."""
+    resources = {
+        "corpora/stopwords": "stopwords",
+        "corpora/wordnet": "wordnet",
+        "sentiment/vader_lexicon": "vader_lexicon"
+    }
+    for path, name in resources.items():
+        try:
+            nltk.data.find(path)
+        except LookupError:
+            print(f"NLTK resource '{name}' not found. Downloading...")
+            nltk.download(name)
+            print(f"'{name}' downloaded successfully.")
+
+# Execute the download check immediately upon script start
+download_nltk_resources()
+
+
 from pathlib import Path
 from streamlit_option_menu import option_menu
 from dotenv import load_dotenv
-import nltk
 
 from login import show_login_page
 from register import show_register_page

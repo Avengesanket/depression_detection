@@ -15,7 +15,6 @@ from collections import Counter
 # —————————————————————————————————————————————
 # 1. Load all of your saved artifacts at module import
 # —————————————————————————————————————————————
-nltk.download('vader_lexicon')
 
 # a) lexicons & sentiment dictionary
 with open('depression_lexicons.json', 'r') as f:
