@@ -174,7 +174,7 @@ def display_assessment_form(phq9_scores):
             st.radio("How strong has the urge been to act on these thoughts?", urge_opts, index=urge_opts.index(st.session_state.get("suicidal_intent_radio", "No urge")), key="suicidal_intent_radio")
             
             st.text_area("What helps you feel safe or gives you reasons for living?", key="protective_factors_input", value=st.session_state.get("protective_factors_input", ""))
-            st.error("**If you are in immediate danger, please seek help:**\n- **Call or Text 988** (USA & Canada) or your local emergency number.\n- **Crisis Text Line:** Text HOME to 741741.")
+            st.error("**If you are in immediate danger, please seek help:**\n- **Call 112** (India) or your local emergency number.\n- **Crisis Text Line:** Text HOME to 741741.")
             
         submitted = st.form_submit_button("Save and Continue to Report")
 
