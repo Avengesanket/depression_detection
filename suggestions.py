@@ -7,7 +7,7 @@ import torch.nn.functional as F
 import streamlit as st
 import google.generativeai as genai
 import plotly.express as px
-import pandas as pd
+import pandas as pd 
 
 from gensim.models import Word2Vec
 from db_utils import (
@@ -76,7 +76,7 @@ def load_depression_model():
 
 @st.cache_resource
 def setup_gemini():
-    key = os.getenv("GEMINI_API_KEY")
+    key = st.secrets.get("gemini", {}).get("GEMINI_API_KEY")
     if not key:
         return None
     genai.configure(api_key=key)
