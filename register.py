@@ -84,6 +84,7 @@ def handle_registration(full_name, age, gender, username, password, confirm_pass
     if register_user(full_name, age, gender, username, password):
         st.session_state["registration_complete"] = True
         st.session_state["page"] = "Login"
+        st.success("Registration successful!")
         st.balloons()
         st.rerun()
 
