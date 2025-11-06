@@ -80,7 +80,7 @@ def setup_gemini():
     if not key:
         return None
     genai.configure(api_key=key)
-    return genai.GenerativeModel("gemini-1.5-flash")
+    return genai.GenerativeModel("gemini-2.5-flash")
 
 # --- Helper Functions ---
 def classify_depression_level(phq9_score: int, model_prob: float):
@@ -246,4 +246,5 @@ It's completely understandable to feel the way you do. Your feelings are valid, 
 
     if st.button("🏠 Return to Home"):
         st.session_state["page"] = "Home"
+
         st.rerun()
